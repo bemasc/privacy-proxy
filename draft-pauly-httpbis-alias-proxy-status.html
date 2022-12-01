@@ -1036,11 +1036,11 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">DNS Aliases Proxy-Status</td>
-<td class="right">November 2022</td>
+<td class="right">December 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Pauly</td>
-<td class="center">Expires 3 June 2023</td>
+<td class="center">Expires 4 June 2023</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1053,12 +1053,12 @@ svg :is([stroke="fill"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-pauly-httpbis-alias-proxy-status-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2022-11-30" class="published">30 November 2022</time>
+<time datetime="2022-12-01" class="published">1 December 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2023-06-03">3 June 2023</time></dd>
+<dd class="expires"><time datetime="2023-06-04">4 June 2023</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -1101,7 +1101,7 @@ received over DNS when establishing a connection to the next hop.<a href="#secti
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 3 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 4 June 2023.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1211,11 +1211,13 @@ a comma-separated list. The items in the list include all names received in CNAM
 records <span>[<a href="#DNS" class="cite xref">DNS</a>]</span> or AliasMode SVCB or HTTPS records <span>[<a href="#SVCB" class="cite xref">SVCB</a>]</span>
 during the course of resolving the next hop's hostname using DNS. Since DNS names can include
 comma (<code>,</code>) characters in them, any commas that appear in a DNS names MUST be represented
-using a percent-encoded <code>%2C</code> value instead.<a href="#section-2-1" class="pilcrow">¶</a></p>
+using a percent-encoded <code>%2C</code> value instead. The aliases SHOULD appear in the order in which
+they were received in DNS; that is, if a name has a CNAME record with a first alias, which
+has a CNAME record for a second alias, the aliases should appear in that order.<a href="#section-2-1" class="pilcrow">¶</a></p>
 <p id="section-2-2">For example:<a href="#section-2-2" class="pilcrow">¶</a></p>
 <div id="section-2-3">
 <pre class="lang-example sourcecode">
-Proxy-Status: proxy.example.net; next-hop=2001:db8::1
+Proxy-Status: proxy.example.net; next-hop=2001:db8::1;
     next-hop-aliases="tracker.example.com.,service1.example-cdn.com."
 </pre><a href="#section-2-3" class="pilcrow">¶</a>
 </div>

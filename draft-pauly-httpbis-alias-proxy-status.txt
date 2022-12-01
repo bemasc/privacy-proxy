@@ -4,8 +4,8 @@
 
 Network Working Group                                           T. Pauly
 Internet-Draft                                               Apple, Inc.
-Intended status: Standards Track                        30 November 2022
-Expires: 3 June 2023
+Intended status: Standards Track                         1 December 2022
+Expires: 4 June 2023
 
 
             HTTP Proxy-Status Parameter for Next-Hop Aliases
@@ -39,7 +39,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 June 2023.
+   This Internet-Draft will expire on 4 June 2023.
 
 Copyright Notice
 
@@ -110,11 +110,14 @@ Table of Contents
    or HTTPS records [SVCB] during the course of resolving the next hop's
    hostname using DNS.  Since DNS names can include comma (,) characters
    in them, any commas that appear in a DNS names MUST be represented
-   using a percent-encoded %2C value instead.
+   using a percent-encoded %2C value instead.  The aliases SHOULD appear
+   in the order in which they were received in DNS; that is, if a name
+   has a CNAME record with a first alias, which has a CNAME record for a
+   second alias, the aliases should appear in that order.
 
    For example:
 
-   Proxy-Status: proxy.example.net; next-hop=2001:db8::1
+   Proxy-Status: proxy.example.net; next-hop=2001:db8::1;
        next-hop-aliases="tracker.example.com.,service1.example-cdn.com."
 
    indicates that proxy.example.net, which used the IP address
