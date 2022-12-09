@@ -4,8 +4,8 @@
 
 Network Working Group                                           T. Pauly
 Internet-Draft                                               Apple, Inc.
-Intended status: Standards Track                         1 December 2022
-Expires: 4 June 2023
+Intended status: Standards Track                         9 December 2022
+Expires: 12 June 2023
 
 
             HTTP Proxy-Status Parameter for Next-Hop Aliases
@@ -39,7 +39,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 June 2023.
+   This Internet-Draft will expire on 12 June 2023.
 
 Copyright Notice
 
@@ -106,14 +106,14 @@ Table of Contents
 
    The next-hop-aliases parameter's value is a String that contains one
    or more DNS names in a comma-separated list.  The items in the list
-   include all names received in CNAME records [DNS] or AliasMode SVCB
-   or HTTPS records [SVCB] during the course of resolving the next hop's
-   hostname using DNS.  Since DNS names can include comma (,) characters
-   in them, any commas that appear in a DNS names MUST be represented
-   using a percent-encoded %2C value instead.  The aliases SHOULD appear
-   in the order in which they were received in DNS; that is, if a name
-   has a CNAME record with a first alias, which has a CNAME record for a
-   second alias, the aliases should appear in that order.
+   include all names received in CNAME records [DNS] during the course
+   of resolving the next hop's hostname using DNS.  Since DNS names can
+   include comma (,) characters in them, any commas that appear in a DNS
+   names MUST be represented using a percent-encoded %2C value instead.
+   The aliases SHOULD appear in the order in which they were received in
+   DNS; that is, if a name has a CNAME record with a first alias, which
+   has a CNAME record for a second alias, the aliases should appear in
+   that order.
 
    For example:
 
@@ -187,13 +187,6 @@ Table of Contents
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
-
-   [SVCB]     Schwartz, B. M., Bishop, M., and E. Nygren, "Service
-              binding and parameter specification via the DNS (DNS SVCB
-              and HTTPS RRs)", Work in Progress, Internet-Draft, draft-
-              ietf-dnsop-svcb-https-11, 11 October 2022,
-              <https://datatracker.ietf.org/doc/html/draft-ietf-dnsop-
-              svcb-https-11>.
 
 5.2.  Informative References
 
